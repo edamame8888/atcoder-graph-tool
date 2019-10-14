@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
+// src/plugins/vuetify.js
 
-Vue.use(Vuetify);
+import Vue from 'vue'
+import Vuetify from 'vuetify/lib'
 
-export default new Vuetify({
-  icons: {
-    iconfont: 'mdi',
-  },
-});
+Vue.use(Vuetify)
+
+const opts = {}
+
+export default new Vuetify(opts)
