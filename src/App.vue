@@ -23,7 +23,9 @@
         >
           <v-card-title class="justify-center">User Name</v-card-title>
           <v-responsive :aspect-ratio="16/9">
-            <RatingGraph/> 
+            <RatingGraph
+              :userData="userData"
+            /> 
           </v-responsive>
         </v-card>
     </v-content>
@@ -39,7 +41,7 @@ export default {
     RatingGraph,
   },
   data: () => ({
-    //
+    userData: []
   }),
 };
 </script>
