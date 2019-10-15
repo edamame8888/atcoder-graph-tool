@@ -16,7 +16,6 @@
       </v-btn>
     </v-app-bar>
 
-
     <v-content> 
       // グラフ要素
       <v-card
