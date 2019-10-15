@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    // ツールバーの設定
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>AtCoder</span>
@@ -15,19 +16,27 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content>
-      <HelloWorld/>
+    <v-content> 
+      <v-card
+          class="mx-auto"
+          max-width="70%"
+        >
+          <v-card-title class="justify-center">User Name</v-card-title>
+          <v-responsive :aspect-ratio="16/9">
+            <RatingGraph/> 
+          </v-responsive>
+        </v-card>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import RatingGraph from './components/RatingGraph.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    RatingGraph,
   },
   data: () => ({
     //
