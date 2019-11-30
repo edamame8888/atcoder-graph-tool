@@ -107,7 +107,8 @@ export default {
     getGraphData (){
       this.$store.commit('setUserID', this.userId)
       axios
-        // .get(`https://atcoder.jp/users/${this.userId}/history/json`)
+        // proxi サーバを経由
+        //.get(`https://atcoder.jp/users/${this.userId}/history/json`)
         .get(`http://localhost:1323/api/parser/${this.userId}`)
         .then(response => {
           this.$store.commit('setContestsData',removeUnrated(response.data))
