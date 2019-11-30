@@ -24,34 +24,47 @@
         />
       </v-content>
 
-      <!-- グラフ要素 -->
-      <v-content>
-        <v-card
-          class="mx-auto"
-          max-width="80%"
-        >
-          <v-card-title class="justify-center">{{currentUser}}</v-card-title>
-          <v-responsive :aspect-ratio="16/9">
-            <RatingGraph
-              :userData="userData"
-            /> 
-          </v-responsive>
-        </v-card>
-      </v-content>
+      
+        <v-row>
+          <!-- グラフ要素 -->
+          <v-col :cols=8>
+            <v-content>
+              <v-card class="mx-auto">
+                <v-card-title class="justify-center">{{currentUser}}</v-card-title>
+                <v-responsive :aspect-ratio="16/9">
+                  <RatingGraph
+                    :userData="userData"
+                  /> 
+                </v-responsive>
+              </v-card>
+            </v-content>
+          </v-col>
 
-    </v-content>
+          <!-- パラメータフォーム -->
+          <v-col>
+            <v-content>
+              <v-card>
+                <ParamForm/>
+              </v-card>
+            </v-content>
+          </v-col>
+        </v-row>
+      </v-content>
+   
   </v-app>
 </template>
 
 <script>
-import RatingGraph from './components/RatingGraph.vue';
-import Form from './components/Form.vue';
+import RatingGraph from './components/RatingGraph.vue'
+import Form from './components/Form.vue'
+import ParamForm from './components/ParametersForm'
 
 export default {
   name: 'App',
   components: {
     RatingGraph,
     Form,
+    ParamForm,
   },
   computed: {
     currentUser() {
