@@ -45,13 +45,11 @@ export default {
           type: 'line',
           plotBorderColor: 'rgb(165, 165, 165)',
           borderRadius: 20,
-          plotBorderWidth: 3
+          plotBorderWidth: 3,
+          height: (9 / 16 * 100) + '%' // 16:9 ratio
         },
         title: {
           text: ''// タイトルはCard側でつける
-        },
-        chart: {
-          height: (9 / 16 * 100) + '%' // 16:9 ratio
         },
         xAxis: {
           tickWidth: 0,
@@ -116,7 +114,7 @@ export default {
           headerFormat: '<p>{point.contestName}</p><table>',
           pointFormat: 
             '<tr><td style="color:{point.color}">Rating: </td>' + '<td style="text-align: right"><b>{point.y}</b></td></tr>' +
-            '<tr><td>Pref: </td>' + '<td style="text-align: right"><b>{point.pref} </b></td></tr>' +
+            '<tr><td>Pref: </td>' + '<td style="text-align: right"><b>{point.pref}</b></td></tr>' +
             '<tr><td>Diff: </td>' + '<td style="text-align: right"><b>{point.diff} </b></td></tr>' +
             '<tr><td>Day: </td>' + '<td style="text-align: right"><b>{point.x} </b></td></tr>' ,
           footerFormat: '</table>',
@@ -131,7 +129,7 @@ export default {
             marker: {
               enabled: true,
               symbol: 'circle', // プロット点を円で描画する
-              radius: 6, // 円の大きさ
+              radius: 4, // 円の大きさ
               lineWidth: 0.6,
               enabledThreshold: 100,
               lineColor: '#FFFFFF' // inherit from series
@@ -200,14 +198,17 @@ export default {
       }
     }
   },
-  watch: {
-    userData: function (val, oldVal) {
-      console.log('update!')
-      console.log(oldVal)
-      this.chartOptions.series[0].data = val;
+  computed: {
+    contestsData: function () {
+      return this.$store.state.contestsData
     }
   },
-  props: ['userData']
+  watch: {
+    contestsData() {
+      console.log("changed!!")
+      this.chartOptions.series[0].data = this.contestsData
+    }
+  }
 }
 </script>
 

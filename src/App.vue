@@ -17,29 +17,46 @@
     </v-app-bar>
 
     <v-content> 
-      // グラフ要素
-      <v-card
+      <!-- Form要素 -->
+      <v-content>
+        <Form
+          :contest_data="userData"
+        />
+      </v-content>
+
+      <!-- グラフ要素 -->
+      <v-content>
+        <v-card
           class="mx-auto"
-          max-width="70%"
+          max-width="80%"
         >
-          <v-card-title class="justify-center">User Name</v-card-title>
+          <v-card-title class="justify-center">{{currentUser}}</v-card-title>
           <v-responsive :aspect-ratio="16/9">
             <RatingGraph
               :userData="userData"
             /> 
           </v-responsive>
         </v-card>
+      </v-content>
+
     </v-content>
   </v-app>
 </template>
 
 <script>
 import RatingGraph from './components/RatingGraph.vue';
+import Form from './components/Form.vue';
 
 export default {
   name: 'App',
   components: {
     RatingGraph,
+    Form,
+  },
+  computed: {
+    currentUser() {
+        return this.$store.state.userID;
+      }
   },
   data: () => ({
     userData: []

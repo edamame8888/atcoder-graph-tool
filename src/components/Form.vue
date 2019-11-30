@@ -28,7 +28,6 @@
         </v-btn>
         </v-card-actions>
      </v-form>
-    <v-card-text> {{contest_data}} </v-card-text>
   </v-card>
 
   
@@ -106,10 +105,12 @@ export default {
   },
   methods: {
     getGraphData (){
+      this.$store.commit('setUserID', this.userId)
       axios
-        .get(`https://atcoder.jp/users/${this.userId}/history/json`)
+        // .get(`https://atcoder.jp/users/${this.userId}/history/json`)
+        .get(`http://localhost:1323/api/parser/${this.userId}`)
         .then(response => {
-          this.contest_data = removeUnrated(response.data)
+          this.$store.commit('setContestsData',removeUnrated(response.data))
         })
         .catch(error => {
           console.log(error);
