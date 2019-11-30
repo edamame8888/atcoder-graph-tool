@@ -4,7 +4,7 @@
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>AtCoder</span>
-        <span class="font-weight-light">Rating Graph Tool</span>
+        <span class="font-weight-light"> Rating Graph Tool</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
