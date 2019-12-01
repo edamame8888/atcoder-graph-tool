@@ -7,24 +7,25 @@
         <span class="font-weight-light"> Rating Graph Tool</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
+
+      <!-- <v-btn
         text
-        href="https://edamame88portfolio.firebaseapp.com/"
+        href="https://twitter.com/edamame882"
         target="_blank"
       >
-        <span class="mr-2">Portfolio</span>
-      </v-btn>
+        <v-avatar class="mxy-4">
+          <img src="./assets/Twitter_Social_Icon_Circle_Color.png">
+        </v-avatar>
+      </v-btn> -->
+
     </v-app-bar>
 
     <v-content> 
       <!-- Form要素 -->
       <v-content>
-        <Form
-          :contest_data="userData"
-        />
+        <Form/>
       </v-content>
 
-      
         <v-row>
           <!-- グラフ要素 -->
           <v-col :cols=8>
@@ -68,11 +69,8 @@ export default {
   },
   computed: {
     currentUser() {
-        return this.$store.state.userID;
-      }
+      return this.$store.state.userID;
+    }
   },
-  data: () => ({
-    userData: []
-  }),
 };
 </script>
