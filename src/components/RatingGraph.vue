@@ -46,7 +46,7 @@ export default {
           plotBorderColor: 'rgb(165, 165, 165)',
           borderRadius: 20,
           plotBorderWidth: 3,
-          height: (9 / 16 * 100) + '%' // 16:9 ratio
+          height: (9 / 16 * 100) + '%', // 16:9 ratio
         },
         title: {
           text: ''// タイトルはCard側でつける
@@ -72,7 +72,9 @@ export default {
           tickInterval: 400,
           tickWidth: 0,
           gridLineWidth: 1,
-
+          title: {
+            text: ''
+          },
           plotBands: [ {
             from: 0,
             to: 399,
@@ -118,6 +120,7 @@ export default {
             '<tr><td>Diff: </td>' + '<td style="text-align: right"><b>{point.diff} </b></td></tr>' +
             '<tr><td>Day: </td>' + '<td style="text-align: right"><b>{point.x} </b></td></tr>' ,
           footerFormat: '</table>',
+          shared: true,
         },
         plotOptions: {
           series: {
@@ -137,7 +140,8 @@ export default {
           }
         },
         series: [{
-          data: [ 
+          name: "Rating",
+          data: [
             {
               x: Date.UTC(2017, 4, 25),
               y: 200,
@@ -193,7 +197,7 @@ export default {
               y: 2900,
               color: getColor(2900)
             }  
-          ]
+          ],
         } ]
       }
     }
@@ -205,7 +209,6 @@ export default {
   },
   watch: {
     contestsData() {
-      console.log("changed!!")
       this.chartOptions.series[0].data = this.contestsData
     }
   }

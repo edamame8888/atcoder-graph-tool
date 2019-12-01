@@ -4,62 +4,73 @@
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>AtCoder</span>
-        <span class="font-weight-light">Rating Graph Tool</span>
+        <span class="font-weight-light"> Rating Graph Tool</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
+
+      <!-- <v-btn
         text
-        href="https://edamame88portfolio.firebaseapp.com/"
+        href="https://twitter.com/edamame882"
         target="_blank"
       >
-        <span class="mr-2">Portfolio</span>
-      </v-btn>
+        <v-avatar class="mxy-4">
+          <img src="./assets/Twitter_Social_Icon_Circle_Color.png">
+        </v-avatar>
+      </v-btn> -->
+
     </v-app-bar>
 
     <v-content> 
       <!-- Form要素 -->
       <v-content>
-        <Form
-          :contest_data="userData"
-        />
+        <Form/>
       </v-content>
 
-      <!-- グラフ要素 -->
-      <v-content>
-        <v-card
-          class="mx-auto"
-          max-width="80%"
-        >
-          <v-card-title class="justify-center">{{currentUser}}</v-card-title>
-          <v-responsive :aspect-ratio="16/9">
-            <RatingGraph
-              :userData="userData"
-            /> 
-          </v-responsive>
-        </v-card>
-      </v-content>
+        <v-row>
+          <!-- グラフ要素 -->
+          <v-col :cols=8>
+            <v-content>
+              <v-card class="mx-auto">
+                <v-card-title class="justify-center">{{currentUser}}</v-card-title>
+                <v-responsive :aspect-ratio="16/9">
+                  <RatingGraph
+                    :userData="userData"
+                  /> 
+                </v-responsive>
+              </v-card>
+            </v-content>
+          </v-col>
 
-    </v-content>
+          <!-- パラメータフォーム -->
+          <v-col>
+            <v-content>
+              <v-card>
+                <ParamForm/>
+              </v-card>
+            </v-content>
+          </v-col>
+        </v-row>
+      </v-content>
+   
   </v-app>
 </template>
 
 <script>
-import RatingGraph from './components/RatingGraph.vue';
-import Form from './components/Form.vue';
+import RatingGraph from './components/RatingGraph.vue'
+import Form from './components/Form.vue'
+import ParamForm from './components/ParametersForm'
 
 export default {
   name: 'App',
   components: {
     RatingGraph,
     Form,
+    ParamForm,
   },
   computed: {
     currentUser() {
-        return this.$store.state.userID;
-      }
+      return this.$store.state.userID;
+    }
   },
-  data: () => ({
-    userData: []
-  }),
 };
 </script>

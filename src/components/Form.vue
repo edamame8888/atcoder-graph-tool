@@ -109,7 +109,7 @@ export default {
       axios
         // proxi サーバを経由
         //.get(`https://atcoder.jp/users/${this.userId}/history/json`)
-        .get(`http://localhost:1323/api/parser/${this.userId}`)
+        .get(`https://secure-gorge-19428.herokuapp.com/api/parser/${this.userId}`)
         .then(response => {
           this.$store.commit('setContestsData',removeUnrated(response.data))
         })
