@@ -132,7 +132,7 @@ export default {
             marker: {
               enabled: true,
               symbol: 'circle', // プロット点を円で描画する
-              radius: 4, // 円の大きさ
+              radius: 3, // 円の大きさ
               lineWidth: 0.6,
               enabledThreshold: 100,
               lineColor: '#FFFFFF' // inherit from series
