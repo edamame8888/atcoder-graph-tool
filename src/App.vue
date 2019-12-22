@@ -28,7 +28,7 @@
 
         <v-row>
           <!-- グラフ要素 -->
-          <v-col :cols=8>
+          <v-col cols="12" lg="8" xl="8">
             <v-content>
               <v-card class="mx-auto">
                 <v-card-title class="justify-center">{{currentUser}}</v-card-title>
