@@ -118,7 +118,7 @@ export default {
         });
     }
   },
-  props: ['userData']
+  // props: ['userData']
 }
 </script>
 
