@@ -118,7 +118,6 @@ export default {
         });
     }
   },
-  // props: ['userData']
 }
 </script>
 
