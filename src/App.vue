@@ -26,32 +26,33 @@
         <Form/>
       </v-content>
 
-        <v-row>
-          <!-- グラフ要素 -->
-          <v-col cols="12" lg="8" xl="8">
-            <v-content>
-              <v-card class="mx-auto">
-                <v-card-title class="justify-center">{{currentUser}}</v-card-title>
-                <v-responsive :aspect-ratio="16/9">
-                  <RatingGraph
-                    :userData="userData"
-                  /> 
-                </v-responsive>
-              </v-card>
-            </v-content>
-          </v-col>
+      <v-row>
+        <!-- グラフ要素 -->
+        <v-col cols="12" lg="8" xl="8">
+          <v-content>
+            <v-card class="mx-auto">
+              <v-card-title class="justify-center">{{currentUser}}</v-card-title>
+              <v-responsive :aspect-ratio="16/9">
+                <RatingGraph/> 
+              </v-responsive>
+            </v-card>
+          </v-content>
+        </v-col>
 
-          <!-- パラメータフォーム -->
-          <v-col>
-            <v-content>
-              <v-card>
-                <ParamForm/>
-              </v-card>
-            </v-content>
-          </v-col>
-        </v-row>
-      </v-content>
-   
+        <!-- パラメータフォーム -->
+        <v-col>
+          <v-content>
+            <v-card>
+              <ParamForm/>
+            </v-card>
+          </v-content>
+        </v-col>
+      </v-row>
+    </v-content>
+    <v-content>
+      <!-- レーティングテーブル -->
+      <RatingTable/>
+    </v-content>
   </v-app>
 </template>
 
@@ -59,6 +60,7 @@
 import RatingGraph from './components/RatingGraph.vue'
 import Form from './components/Form.vue'
 import ParamForm from './components/ParametersForm'
+import RatingTable from './components/RatingTable'
 
 export default {
   name: 'App',
@@ -66,6 +68,7 @@ export default {
     RatingGraph,
     Form,
     ParamForm,
+    RatingTable,
   },
   computed: {
     currentUser() {
