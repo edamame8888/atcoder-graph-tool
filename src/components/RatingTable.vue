@@ -26,7 +26,8 @@
         </template>
         
         <template v-slot:item.contestName="{ item }">
-            <td> <a :href='item.url'>{{ item.contestName }}</a></td>
+            <td v-if='item.url != ""'> <a :href='"https://"+item.url'>{{ item.contestName }}</a></td>
+            <td v-else> {{ item.contestName }} </td>
         </template>
 
         <template v-slot:item.y="{ item }">
